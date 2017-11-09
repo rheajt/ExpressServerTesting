@@ -1,5 +1,4 @@
 var request = require('supertest');
-require = require('really-need');
 
 describe('loading express', function() {
   var server;
@@ -10,6 +9,7 @@ describe('loading express', function() {
     });
   });
   afterEach(function(done) {
+    delete require.cache[require.resolve('./server')];
     server.close(done);
   });
   
